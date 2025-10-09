@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="ru" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HackerLab — Kuban CSC 2025</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="min-h-full bg-neutral-900 text-white font-sans antialiased">
+<div id="scrollbar" class="fixed inset-x-0 top-0 z-[60] h-[3px]">
+  <div id="scrollbar-fill" class="h-full bg-brand-500 origin-left scale-x-0" style="transform:scaleX(0); will-change:transform"></div>
+</div>
+<button id="scrollTopBtn" aria-label="Наверх"
+  class="fixed bottom-6 left-6 z-50 hidden rounded-full bg-brand-500 text-neutral-900 p-3 shadow-lg hover:bg-brand-400 transition">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+  </svg>
+</button>
+
+<header class="z-50 bg-neutral-900">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="flex h-16 items-center justify-between">
+
+      <a href="#" class="inline-flex items-center gap-2 font-semibold tracking-tight">
+        <img src="./public/img/HACKERLAB.svg" alt="HackerLab logo" class="h-7 w-auto">
+      </a>
+
+      <button id="menuBtn" class="lg:hidden inline-flex items-center gap-2 rounded-xl border border-neutral-700 px-3 py-2 text-sm text-neutral-200 hover:bg-neutral-800">
+        <svg width="18" height="18" fill="currentColor" aria-hidden="true">
+          <path d="M2 4h14v2H2zM2 8h14v2H2zM2 12h14v2H2z"/>
+        </svg>
+        <span class="sr-only">Меню</span>
+      </button>
+
+      <nav class="hidden lg:flex items-center gap-6 text-sm text-neutral-300">
+        <a href="#about" class="hover:text-white">О проекте</a>
+        <a href="#activities" class="hover:text-white">Активности</a>
+        <a href="#prizes" class="hover:text-white">Призы</a>
+        <a href="#stories" class="hover:text-white">Истории</a>
+        <a href="#contacts" class="hover:text-white">Контакты</a>
+        <a href="#join" class="rounded-xl border border-brand-500/60 px-4 py-2 font-medium text-brand-400 hover:bg-brand-500/10">Регистрация</a>
+      </nav>
+    </div>
+
+    <div id="mobileNav" class="lg:hidden hidden pb-4">
+      <nav class="grid gap-2 text-sm text-neutral-300">
+        <a class="rounded-lg px-3 py-2 hover:bg-neutral-800" href="#about">О проекте</a>
+        <a class="rounded-lg px-3 py-2 hover:bg-neutral-800" href="#activities">Активности</a>
+        <a class="rounded-lg px-3 py-2 hover:bg-neutral-800" href="#prizes">Призы</a>
+        <a class="rounded-lg px-3 py-2 hover:bg-neutral-800" href="#stories">Истории</a>
+        <a class="rounded-lg px-3 py-2 hover:bg-neutral-800" href="#contacts">Контакты</a>
+        <a class="rounded-lg px-3 py-2 text-brand-400 ring-1 ring-inset ring-brand-500/50 hover:bg-brand-500/10" href="#join">Регистрация</a>
+      </nav>
+    </div>
+  </div>
+</header>
+
+
+
+  <section class="relative overflow-hidden">
+    <canvas id="particles" class="absolute inset-0 -z-10"></canvas>
+
+    <div class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_40%_at_50%_0%,rgba(41,227,138,0.08),transparent_60%)]"></div>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="py-24 sm:py-28 lg:py-36 text-center">
+        <h1 class="mx-auto max-w-4xl text-3xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-white">
+          Hacker<span class="text-brand-500">Lab</span> на Kuban CSC 2025 — участвуйте, выигрывайте, вдохновляйтесь!
+        </h1>
+        <p class="mx-auto mt-6 max-w-3xl text-base sm:text-lg text-neutral-300">
+          Интерактивные активности, конкурсы, истории и призы — всё на нашем стенде.
+        </p>
+
+        <div class="mt-10 flex items-center justify-center gap-3">
+          <a href="#join" class="rounded-xl bg-brand-500 px-5 py-3 text-neutral-900 font-medium hover:bg-brand-400 transition">
+            Принять участие
+          </a>
+          <a href="#activities" class="rounded-xl border border-neutral-700 px-5 py-3 text-neutral-200 hover:bg-neutral-800">
+            Смотреть активности
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+<section id="about" class="relative overflow-hidden py-20 sm:py-24">
+    <canvas id="about-bg" class="absolute inset-0 z-0"></canvas>
+
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">О мероприятии</h2>
+        <p class="mt-4 text-base sm:text-lg text-neutral-300">
+            HackerLab приглашает всех посетителей Kuban CSC принять участие в ряде уникальных интерактивных активностей на нашем стенде.
+            С нами может поучаствовать каждый: независимо от уровня знаний в ИБ.
+        </p>
+        </div>
+
+        <div class="mt-14 grid gap-8 lg:gap-10 sm:grid-cols-2 lg:grid-cols-3">
+        
+        <a href="#activities" class="feature-card group rounded-2xl bg-neutral-900/60 border border-neutral-800 p-8 backdrop-blur transition hover:bg-neutral-900">
+            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+            <h3 class="text-2xl font-semibold text-white">
+            Кибер-лотерея <span class="text-brand-500">Hacker</span><span class="text-brand-500/90">Lab</span>
+            </h3>
+            <p class="mt-6 text-sm leading-relaxed text-neutral-300">
+            Сканируйте QR-код, заполните форму и ответьте на 5 лёгких вопросов о CTF — 
+            <span class="text-white font-medium">гарантированный приз</span>.  
+            За завершение викторины — <span class="text-brand-500">билет</span> на розыгрыш суперприза на следующий день.
+            </p>
+        </a>
+
+        <a href="#activities" class="feature-card group rounded-2xl bg-neutral-900/60 border border-neutral-800 p-8 backdrop-blur transition hover:bg-neutral-900">
+            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+            <h3 class="text-2xl font-semibold text-white">
+            Story Booth <span class="text-brand-500">«ИБ изнутри»</span>
+            </h3>
+            <p class="mt-6 text-sm leading-relaxed text-neutral-300">
+            Расскажите свой путь в ИБ. Лучшие истории опубликуем в соцсетях, 
+            а авторам — <span class="text-white font-medium">скидки</span> на курсы и подписку.
+            </p>
+        </a>
+
+        <a href="#activities" class="feature-card group rounded-2xl bg-neutral-900/60 border border-neutral-800 p-8 backdrop-blur transition hover:bg-neutral-900">
+            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+            <h3 class="text-2xl font-semibold text-white">
+            Фото с <span class="text-brand-500">HackerLab</span>
+            </h3>
+            <p class="mt-6 text-sm leading-relaxed text-neutral-300">
+            Сделайте фото у стенда, выложите с хэштегом <span class="text-white font-medium">#HackerLabCSC2025</span> 
+            и отметьте нас — <span class="text-white font-medium">подарок сразу</span>.  
+            Среди публикаций будет разыгран суперприз.
+            </p>
+        </a>
+
+        <a href="#activities" class="feature-card group rounded-2xl bg-neutral-900/60 border border-neutral-800 p-8 backdrop-blur transition hover:bg-neutral-900 sm:col-span-2 lg:col-span-3">
+            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+            <h3 class="text-2xl font-semibold text-white">
+            Вопрос эксперту <span class="text-brand-500">HackerLab</span>
+            </h3>
+            <p class="mt-6 text-sm leading-relaxed text-neutral-300 max-w-4xl">
+            Задайте вопрос по кибербезопасности через форму или бота. 
+            Лучшие вопросы получат ответы в соцсетях, а авторы — 
+            <span class="text-white font-medium">призы и скидки</span>.
+            </p>
+        </a>
+        </div>
+    </div>
+</section>
+<section id="activities" class="relative overflow-hidden">
+  <canvas id="activities-bg" class="absolute inset-0 -z-10"></canvas>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 relative">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl sm:text-3xl font-semibold text-white">Активности на стенде</h2>
+      <p class="mt-3 text-neutral-300">
+        Ниже — четыре формата участия. Выберите то, что подходит вам сейчас, или идите по порядку:
+        от быстрой кибер-лотереи до вопроса эксперту. Секции ниже раскрывают детали и кнопки участия.
+      </p>
+    </div>
+
+    <ol class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <li class="rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand-500/15 text-brand-500 text-xs font-semibold">1</span>
+          <span class="text-white font-medium">Кибер-лотерея</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-400">QR → 5 вопросов → мгновенный приз и билет на суперприз.</p>
+      </li>
+      <li class="rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand-500/15 text-brand-500 text-xs font-semibold">2</span>
+          <span class="text-white font-medium">Story Booth</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-400">Расскажите свою историю — опубликуем и подарим бонусы.</p>
+      </li>
+      <li class="rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand-500/15 text-brand-500 text-xs font-semibold">3</span>
+          <span class="text-white font-medium">Фото с HackerLab</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-400">Фото в бренд-зоне → пост с #HackerLabCSC2025 → розыгрыш.</p>
+      </li>
+      <li class="rounded-xl border border-neutral-800 bg-neutral-900/60 p-4">
+        <div class="flex items-center gap-2">
+          <span class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-brand-500/15 text-brand-500 text-xs font-semibold">4</span>
+          <span class="text-white font-medium">Вопрос эксперту</span>
+        </div>
+        <p class="mt-2 text-sm text-neutral-400">Задайте вопрос анонимно — лучшие получат ответы и призы.</p>
+      </li>
+    </ol>
+
+    <nav class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" aria-label="Навигация по активностям">
+      <a href="#lottery" class="group rounded-xl border border-neutral-800 bg-neutral-900/40 px-4 py-3 hover:bg-neutral-900/70 transition">
+        <div class="flex items-center justify-between gap-3">
+          <span class="text-neutral-200">Кибер-лотерея</span>
+          <span class="inline-flex items-center gap-1 text-xs text-neutral-400 group-hover:text-brand-400">
+            подробнее
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <p class="mt-1.5 text-xs text-neutral-400">5 вопросов, приз сразу</p>
+      </a>
+
+      <a href="#story" class="group rounded-xl border border-neutral-800 bg-neutral-900/40 px-4 py-3 hover:bg-neutral-900/70 transition">
+        <div class="flex items-center justify-between gap-3">
+          <span class="text-neutral-200">Story Booth</span>
+          <span class="inline-flex items-center gap-1 text-xs text-neutral-400 group-hover:text-brand-400">подробнее
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <p class="mt-1.5 text-xs text-neutral-400">короткое видео/аудио</p>
+      </a>
+
+      <a href="#photo" class="group rounded-xl border border-neutral-800 bg-neutral-900/40 px-4 py-3 hover:bg-neutral-900/70 transition">
+        <div class="flex items-center justify-between gap-3">
+          <span class="text-neutral-200">Фото с HackerLab</span>
+          <span class="inline-flex items-center gap-1 text-xs text-neutral-400 group-hover:text-brand-400">подробнее
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <p class="mt-1.5 text-xs text-neutral-400">пост с #HackerLabCSC2025</p>
+      </a>
+
+      <a href="#ask" class="group rounded-xl border border-neutral-800 bg-neutral-900/40 px-4 py-3 hover:bg-neutral-900/70 transition">
+        <div class="flex items-center justify-between gap-3">
+          <span class="text-neutral-200">Вопрос эксперту</span>
+          <span class="inline-flex items-center gap-1 text-xs text-neutral-400 group-hover:text-brand-400">подробнее
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M8 5l8 7-8 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <p class="mt-1.5 text-xs text-neutral-400">анонимно, с призами</p>
+      </a>
+    </nav>
+  </div>
+</section>
+<section id="lottery" class="relative py-16 sm:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-semibold text-white">Кибер-лотерея от <span class="text-brand-500">HackerLab</span></h2>
+        <p class="mt-4 text-neutral-300">
+          Ответьте на 5 простых вопросов о CTF — приз за участие и шанс взять суперприз на следующий день.
+        </p>
+
+        <div class="mt-8 space-y-4">
+          <h3 class="text-white font-medium">Как участвовать:</h3>
+          <ol class="space-y-3 text-neutral-300">
+            <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Сканируйте QR-код на стенде или переходите по ссылке.</li>
+            <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Заполните короткую форму (имя, email).</li>
+            <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Ответьте на 5 простых вопросов о CTF — даже без глубоких знаний!</li>
+            <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Получите гарантированный приз за участие и уникальный код.</li>
+            <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> На следующий день среди билетов выберем победителя суперприза.</li>
+          </ol>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center gap-4">
+          <a href="https://example.com/lottery" target="_blank" class="rounded-xl bg-brand-500 px-6 py-3 text-neutral-900 font-semibold hover:bg-brand-400 transition">Участвовать</a>
+          <span class="text-sm text-neutral-400">ссылка ведёт на форму</span>
+        </div>
+
+        <div class="mt-10 rounded-2xl border border-dashed border-neutral-700 p-5 text-neutral-400">
+          <span class="text-neutral-300 font-medium">Призы:</span> напишем позже — блок готов для вставки.
+        </div>
+      </div>
+
+      <div class="feature-card rounded-2xl bg-neutral-900/60 border border-neutral-800 p-8 backdrop-blur">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+        <div class="grid sm:grid-cols-2 gap-6 items-center">
+          <div class="aspect-square rounded-xl border border-neutral-700 grid place-items-center">
+            <span class="text-neutral-500 text-sm">QR-код<br/>здесь</span>
+          </div>
+          <div>
+            <p class="text-neutral-300">Можно сразу перейти по ссылке и пройти мини-викторину.</p>
+            <a href="https://example.com/lottery" target="_blank" class="mt-4 inline-flex rounded-xl border border-brand-500/60 px-4 py-2 text-brand-400 hover:bg-brand-500/10">Открыть форму</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="story" class="relative  py-16 sm:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="feature-card rounded-2xl bg-neutral-900/60 border border-neutral-800 p-8 lg:p-10">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+      <div class="grid lg:grid-cols-2 gap-10">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-semibold text-white">Story Booth <span class="text-brand-500">«ИБ изнутри»</span></h2>
+          <p class="mt-4 text-neutral-300">
+            Запишем вашу историю (1–2 минуты), смонтируем и опубликуем её в соцсетях HackerLab.
+          </p>
+
+          <div class="mt-8 space-y-3 text-neutral-300">
+            <div class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Не хотите сниматься? Запишите короткое голосовое сообщение — тоже подойдёт.</div>
+          </div>
+
+          <div class="mt-8">
+            <h3 class="text-white font-medium">Что вы получите:</h3>
+            <ul class="mt-3 space-y-2 text-neutral-300">
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Возможность рассказать свою историю публично</li>
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Скидки на курсы / бесплатная подписка на платформу</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid gap-4">
+          <div class="rounded-xl h-48 bg-[linear-gradient(120deg,#29E38A22_0%,#0E5F3A22_50%,#29E38A22_100%)] animate-gradient"></div>
+          <a href="#story" class="rounded-xl bg-brand-500 px-6 py-3 text-neutral-900 font-semibold text-center hover:bg-brand-400 transition">Участвовать в Story Booth</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="photo" class="relative  py-16 sm:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <div>
+        <h2 class="text-3xl sm:text-4xl font-semibold text-white">Фото с <span class="text-brand-500">HackerLab</span></h2>
+        <div class="mt-6 space-y-3 text-neutral-300">
+          <div class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Подойди к стенду и сделай фото в нашей бренд-зоне.</div>
+          <div class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Опубликуй фото в соцсети с хэштегом <span class="text-white font-medium">#HackerLabCSC2025</span> и отметь аккаунт HackerLab.</div>
+          <div class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Выиграй скидку на курс или подписку на HackerLab!</div>
+        </div>
+
+        <div class="mt-8 rounded-2xl border border-neutral-800 p-5 text-neutral-300">
+          <h3 class="text-white font-medium">Суперприз:</h3>
+          <p class="mt-2">Среди всех участников публикаций выберем победителя и вручим крупный приз в финальный день.</p>
+        </div>
+
+        <a href="#photo" class="mt-8 inline-flex rounded-xl border border-brand-500/60 px-5 py-3 text-brand-400 hover:bg-brand-500/10">Условия участия</a>
+      </div>
+
+      <div class="feature-card rounded-2xl bg-neutral-900/60 border border-neutral-800 p-8">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="aspect-video rounded-xl border border-neutral-700 grid place-items-center text-neutral-500">
+          Превью бренд-зоны / фото
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="ask" class="relative  py-16 sm:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="feature-card rounded-2xl bg-neutral-900/60 border border-neutral-800 p-8 lg:p-10">
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+
+      <div class="grid lg:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-3xl sm:text-4xl font-semibold text-white">Вопрос эксперту <span class="text-brand-500">HackerLab</span></h2>
+          <p class="mt-4 text-neutral-300">
+            Оставьте свой вопрос по кибербезопасности через анонимный бот. Мы отберём лучшие вопросы и опубликуем ответы в соцсетях.
+          </p>
+
+          <div class="mt-8">
+            <h3 class="text-white font-medium">Что вы получите:</h3>
+            <ul class="mt-3 space-y-2 text-neutral-300">
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Ответ от экспертов HackerLab</li>
+              <li class="flex gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-brand-500"></span> Скидки на курсы / эксклюзивные призы за лучшие вопросы</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="grid gap-4">
+          <a href="https://example.com/ask" target="_blank" class="rounded-xl bg-brand-500 px-6 py-4 text-center text-neutral-900 font-semibold hover:bg-brand-400 transition">Задать вопрос</a>
+          <p class="text-sm text-neutral-400">Кнопка ведёт в бота/форму. Можно оставить вопрос анонимно.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contacts" class="relative py-16 sm:py-20">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-semibold text-white tracking-tight">Контакты</h2>
+      <p class="mt-4 text-neutral-300">
+        Следите за обновлениями, победителями и историями:
+      </p>
+    </div>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+      
+      <a href="https://t.me/hacker_lab_pro" target="_blank" class="group flex flex-col items-start gap-2 rounded-xl border border-neutral-800 bg-neutral-900/50 p-5 hover:bg-neutral-900 transition">
+        <div class="flex items-center gap-2 text-white font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 3L9 14l-4-4"/>
+          </svg>
+          Telegram
+        </div>
+        <span class="text-neutral-400 group-hover:text-neutral-300">@hacker_lab_pro</span>
+      </a>
+
+      <a href="https://hackerlab.pro" target="_blank" class="group flex flex-col items-start gap-2 rounded-xl border border-neutral-800 bg-neutral-900/50 p-5 hover:bg-neutral-900 transition">
+        <div class="flex items-center gap-2 text-white font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l18-9-9 18-2-7-7-2z" />
+          </svg>
+          Сайт
+        </div>
+        <span class="text-neutral-400 group-hover:text-neutral-300">hackerlab.pro</span>
+      </a>
+
+      <a href="mailto:dev@codeby.email" class="group flex flex-col items-start gap-2 rounded-xl border border-neutral-800 bg-neutral-900/50 p-5 hover:bg-neutral-900 transition">
+        <div class="flex items-center gap-2 text-white font-medium">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l9 6 9-6M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          Email
+        </div>
+        <span class="text-neutral-400 group-hover:text-neutral-300">dev@codeby.email</span>
+      </a>
+
+        <a href="https://t.me/ekaesha" target="_blank" class="group flex flex-col items-start gap-2 rounded-xl border border-neutral-800 bg-neutral-900/50 p-5 hover:bg-neutral-900 transition">
+        <div class="flex items-center gap-2 text-white font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-brand-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A7.975 7.975 0 0112 15a7.975 7.975 0 016.879 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            Представитель
+        </div>
+        <span class="text-neutral-400 group-hover:text-neutral-300">@ekaesha</span>
+        </a>
+
+
+    </div>
+  </div>
+</section>
+<footer class="py-10 text-sm">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+      
+      <div>
+        <h3 class="text-white font-medium mb-3">Документы</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="text-neutral-400 hover:text-brand-400 transition">
+              Политика конфиденциальности
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-neutral-400 hover:text-brand-400 transition">
+              Условия участия
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-neutral-400 hover:text-brand-400 transition">
+              Политика обработки персональных данных
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white font-medium mb-3">Контакт для вопросов</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="mailto:dev@codeby.email" class="text-neutral-400 hover:text-brand-400 transition">
+              dev@codeby.email
+            </a>
+          </li>
+          <li>
+            <a href="https://t.me/ekaesha" target="_blank" class="text-neutral-400 hover:text-brand-400 transition">
+              Telegram: @ekaesha
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2 flex flex-col justify-between items-start lg:items-end gap-4">
+        <div class="flex flex-col items-start lg:items-end">
+          <span class="text-white font-semibold text-lg">
+            Hacker<span class="text-brand-500">Lab</span>
+          </span>
+          <p class="mt-1 text-neutral-500 text-xs">
+            © 2016-2025 HackerLab. Все права защищены.
+          </p>
+        </div>
+
+        <a href="https://navigator.sk.ru/orn/1127271" target="_blank" rel="noopener" class="inline-block hover:opacity-90 transition">
+          <svg id="sk_participant_svg__a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 168.32 49.24" width="168" height="49"><defs><style>.sk_participant_svg__c{fill:#b4ff0a}</style></defs><path class="sk_participant_svg__c" d="M12.31 0C5.51 0 0 5.51 0 12.31v24.62c0 6.8 5.51 12.31 12.31 12.31h24.62c6.8 0 12.31-5.51 12.31-12.31V0H12.31Z"></path><path d="M40.69 18.46h-5.91l-5.62 6.16V12.31H24.6v2.98a12.1 12.1 0 0 0-.48-.57c-1.66-1.76-4.05-2.65-7.11-2.65-3.53 0-5.54 1.58-6.61 2.91-1.32 1.65-1.91 3.9-1.5 5.73 1.06 4.74 5.46 5.5 8.69 5.92 2.55.33 4.99.8 4.93 3.07-.07 2.36-2.73 2.94-4.48 2.94-4.55 0-4.7-3.36-4.7-3.36H8.45c.07 1.26.45 3.29 2.01 5.03 1.7 1.91 4.26 2.87 7.59 2.87 2.56 0 4.89-.83 6.55-2.31v2.03h4.56v-5.81l1.61-1.77 4.61 7.58h5.31l-6.71-11.09 6.71-7.35Zm-27.23 1.21c-.4-1.76 1.35-3.32 3.63-3.32 2.05 0 4.1.46 4.88 3.31h2.62v4.36c-3.27-2.69-10.37-1-11.13-4.35Z" style="fill:#4d5759"></path><path class="sk_participant_svg__c" d="M60.85 33.82c.31.1.66.15 1.07.15.51 0 .92-.15 1.23-.46.31-.31.51-.72.61-1.17L57.27 18.6h4.32l4.16 9.86 3.65-9.86h4.11l-5.85 13.54c-.77 1.79-1.56 3.12-2.43 3.96-.87.87-1.81 1.3-2.86 1.3-.36 0-.64 0-.87-.05a3.98 3.98 0 0 1-.64-.13l-.49-.15c-.13-.05-.26-.1-.38-.13v-3.47c.23.15.51.28.84.36h.02ZM80.55 31.78c-.26.08-.54.13-.84.2-.31.05-.64.1-.97.13-.33.05-.66.05-.97.05-.79 0-1.46-.08-2.07-.2-.59-.15-1.1-.36-1.51-.66s-.72-.72-.92-1.23c-.2-.49-.31-1.1-.31-1.81v-4.9h3.52v4.21c0 .38.05.72.15.94.08.26.23.46.43.61.2.15.43.26.74.31s.66.08 1.07.08c.61 0 1.07-.05 1.43-.15.36-.13.64-.26.84-.38v-5.62h3.52v13.59h-3.52v-5.36c-.15.05-.36.13-.61.2h.02ZM98.33 35.25c.03.26.1.49.18.61.08.18.15.28.26.36.1.08.18.13.31.15v.56h-3.91l-.2-.64c-.1-.26-.13-.56-.13-.95l-.79.79c-.28.23-.56.43-.89.61s-.69.33-1.12.43-.95.15-1.53.15-1.17-.08-1.69-.26c-.51-.18-.94-.46-1.33-.79-.36-.36-.66-.79-.87-1.33-.2-.51-.31-1.12-.31-1.81 0-.56.08-1.07.26-1.56s.43-.89.74-1.25c.33-.36.72-.66 1.17-.89.46-.26.97-.41 1.56-.49l3.45-.51c.13-.03.26-.03.41-.08a.94.94 0 0 0 .41-.18.92.92 0 0 0 .31-.31c.08-.15.13-.33.13-.56s-.05-.43-.1-.61c-.08-.2-.2-.36-.36-.49-.18-.15-.38-.26-.66-.33-.28-.08-.64-.1-1.05-.1-.49 0-.84.05-1.12.13-.31.1-.54.26-.69.41-.18.18-.31.38-.38.59l-.15.74h-3.52c0-.15.03-.38.08-.69.05-.28.15-.61.31-.97.13-.33.36-.69.61-1.05.26-.36.59-.69 1.05-1 .41-.28.95-.54 1.56-.72.61-.18 1.33-.28 2.2-.31 1.2 0 2.2.13 2.96.36.74.26 1.33.59 1.76.97.41.41.69.84.84 1.33.13.49.2.97.2 1.46v7.2c0 .41.03.74.08 1l-.04.03Zm-4.24-4.65c-.23.1-.51.2-.87.26l-.94.18c-.41.08-.77.15-1.07.26-.31.1-.56.23-.77.38-.2.18-.36.38-.46.61s-.15.51-.15.87c0 .28.05.54.13.74.1.23.23.38.41.54.15.13.33.26.54.31.23.08.46.1.72.1.13 0 .31-.03.51-.05.2-.03.41-.08.66-.15.23-.1.46-.2.69-.36.23-.13.43-.33.61-.56.2-.23.36-.51.46-.87.1-.33.18-.72.18-1.17v-1.38c-.2.13-.43.23-.64.31v-.02ZM108.19 27.21c-.1-.28-.26-.51-.43-.69-.2-.2-.43-.33-.69-.43-.28-.08-.61-.13-1-.13-.59 0-1.05.13-1.4.41-.36.28-.64.61-.82 1.02-.2.43-.31.89-.38 1.38-.05.49-.1.94-.1 1.38s.03.92.08 1.4c.05.51.15.94.36 1.35.18.41.43.77.82 1.02.36.28.84.41 1.46.41.41 0 .77-.08 1.07-.26.28-.15.54-.36.74-.59.2-.26.36-.51.46-.79.08-.26.13-.51.13-.74h3.68c0 .23-.03.51-.1.87-.1.38-.23.74-.41 1.15-.18.38-.43.79-.72 1.2-.33.41-.69.77-1.15 1.07-.46.33-.97.59-1.58.79s-1.33.31-2.12.31c-1.02 0-1.94-.15-2.73-.46-.79-.33-1.46-.79-1.99-1.4-.54-.61-.95-1.35-1.23-2.27-.28-.89-.43-1.92-.43-3.06s.15-2.2.46-3.09c.31-.87.74-1.63 1.3-2.25.56-.61 1.23-1.07 2.02-1.38.77-.33 1.66-.49 2.61-.49.41 0 .84.05 1.3.1.43.05.87.18 1.3.33.43.18.84.38 1.25.64.38.26.74.59 1.07.97.31.38.56.84.77 1.35.2.51.33 1.12.38 1.81h-3.68c-.08-.36-.15-.69-.28-.94h-.02ZM124.45 23.35v2.86h-4.11v10.73h-3.52V26.21h-4.11v-2.86h11.74ZM134.25 28.26v-4.9h3.52v13.59h-3.52v-5.82h-5.18v5.82h-3.52V23.36h3.52v4.9h5.18ZM143.71 31.73l4.96-8.38h3.7v13.59h-3.52v-8.2h-.05l-4.8 8.2h-3.86V23.35h3.52v8.38h.05ZM163.39 23.35h4.7l-5.62 5.64 5.85 7.94h-4.6l-3.98-5.75-1.43 1.46v4.29h-3.52V23.34h3.52v5.16l5.08-5.16Z"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+
+
+
+  <script type="module" src="/src/js/main.js"></script>
+
+</body>
+</html>
+

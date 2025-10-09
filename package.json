@@ -1,0 +1,16 @@
+{
+  "name": "kuban",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/css/tailwind.css -o ./styles.css --watch",
+    "build": "npx tailwindcss -i ./src/css/tailwind.css -o ./styles.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^4.1.14"
+  }
+}
